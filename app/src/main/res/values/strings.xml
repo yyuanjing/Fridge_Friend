@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">FridgeFriend!</string>
+    <string name="fridgefriend">FridgeFriend</string>
+    <string name="click_message">Click the fridge to see what\'s inside!</string>
+    <string name="food_name">Name: %1$s</string>
+    <string name="food_quantity">Quantity: %1$s</string>
+    <string name="food_expiration_date">Expiration Date: %1$s</string>
 </resources>
