@@ -7,10 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-/** not sure if the bottom references are correct */
-import com.example.cs371m_lab3.R
-import com.example.cs371m_lab3.FridgeLayout
-import com.example.cs371m_lab3.DataSource
+
 
 class FoodCardAdapter (
     ): RecyclerView.Adapter<FoodCardAdapter.FoodCardViewHolder>() {

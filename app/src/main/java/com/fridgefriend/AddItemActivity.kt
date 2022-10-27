@@ -47,7 +47,7 @@ class AddItemActivity : AppCompatActivity() {
                 "Dairy"-> foodType = R.drawable.dairy
             }
 
-            foodList.add(FoodData(foodType,foodName,foodCount,foodExpire))
+            foodList.add(Food(foodType,foodName,foodCount,foodExpire))
 
             val intent2 = Intent(this,FridgeLayout::class.java)
             startActivity(intent2)

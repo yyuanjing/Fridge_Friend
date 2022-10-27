@@ -1,8 +1,10 @@
 package com.fridgefriend
 
-class Food {
-    private var exp_date = 0
-    private var type = "fruit"
-    private var note = ""
+import androidx.annotation.DrawableRes
 
-}
+data class Food (
+    @DrawableRes val imageResourceId: Int, //r.drawable.dairy for example
+    val name: String,
+    val quantity: String,
+    val expiration_date: String
+)
