@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#252525"
     tools:context=".MainActivity">
+
 
     <TextView
         android:id="@+id/fridge_friend_text"
@@ -13,16 +15,20 @@
         android:layout_marginTop="50dp"
         android:text="@string/fridgefriend"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/fridge_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/clickFridgeInstruction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/click_message"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,6 +44,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/fridge" />
 
+    <!-- TODO: add OnClick to ImageView instead of a button on top of it -->
     <Button
         android:id="@+id/open_fridge_button"
         android:layout_width="307dp"

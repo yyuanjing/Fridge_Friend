@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="130dp"
+    android:layout_height="145dp"
     android:layout_margin="10dp"
     app:cardElevation="6dp">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,10 +19,10 @@
             android:layout_height="120dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
 
             android:scaleType="centerInside"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"></ImageView>
 
@@ -34,21 +34,19 @@
             android:layout_marginTop="20dp"
             android:text="@string/food_name"
 
-            app:layout_constraintStart_toEndOf="@+id/food_image"
+            app:layout_constraintStart_toEndOf="@id/food_image"
             app:layout_constraintTop_toTopOf="parent"></TextView>
 
         <TextView
             android:id="@+id/food_quantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
 
             android:text="@string/food_quantity"
-            app:layout_constraintBottom_toTopOf="@+id/food_expiration"
 
-            app:layout_constraintStart_toEndOf="@+id/food_image"
-            app:layout_constraintTop_toBottomOf="@+id/food_name"
-            app:layout_constraintVertical_bias="0.512">
+            app:layout_constraintStart_toStartOf="@id/food_name"
+            app:layout_constraintTop_toBottomOf="@id/food_name">
 
         </TextView>
 
@@ -56,13 +54,57 @@
             android:id="@+id/food_expiration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginTop="5dp"
             android:text="@string/food_expiration_date"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/food_image">
+            app:layout_constraintStart_toEndOf="@id/food_image"
+            app:layout_constraintStart_toStartOf="@id/food_quantity"
+            app:layout_constraintTop_toBottomOf="@id/food_quantity">
 
         </TextView>
+
+        <TextView
+            android:id="@+id/date_added"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/date_added"
+            app:layout_constraintStart_toEndOf="@id/food_image"
+            app:layout_constraintStart_toStartOf="@id/food_expiration"
+            app:layout_constraintTop_toBottomOf="@id/food_expiration">
+
+        </TextView>
+
+        <ImageView
+            android:id="@+id/expired_image"
+            android:layout_width="58dp"
+            android:layout_height="57dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:alpha="0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/expired" />
+
+        <ImageView
+            android:id="@+id/edit_icon"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="15dp"
+            android:onClick="editItem"
+            app:layout_constraintBottom_toBottomOf="@id/remove_icon"
+            app:layout_constraintEnd_toStartOf="@id/remove_icon"
+            app:srcCompat="@drawable/edit_icon" />
+
+        <ImageView
+            android:id="@+id/remove_icon"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+            android:onClick="removeItem"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/delete_icon" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

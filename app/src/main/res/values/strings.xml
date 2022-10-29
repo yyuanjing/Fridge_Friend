@@ -5,4 +5,5 @@
     <string name="food_name">Name: %1$s</string>
     <string name="food_quantity">Quantity: %1$s</string>
     <string name="food_expiration_date">Expiration Date: %1$s</string>
+    <string name="date_added">Date Added: %1$s</string>
 </resources>

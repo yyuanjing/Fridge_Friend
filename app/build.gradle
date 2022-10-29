@@ -6,6 +6,11 @@ plugins {
 android {
     compileSdk 32
 
+    // Project: Added data binding
+    buildFeatures{
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId "com.fridgefriend"
         minSdk 21

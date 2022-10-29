@@ -3,6 +3,7 @@ package com.fridgefriend
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -30,6 +31,15 @@ class FridgeLayout : AppCompatActivity() {
 
         // Setting the Adapter with the recyclerview
         recyclerview.adapter = adapter
+
+    }
+
+    fun editItem(view : View){
+        val intent = Intent(this, AddItemActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun removeItem(view : View){
 
     }
 }

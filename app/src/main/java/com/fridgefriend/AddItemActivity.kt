@@ -2,13 +2,16 @@ package com.fridgefriend
 
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import java.time.LocalDateTime
 
 class AddItemActivity : AppCompatActivity() {
     private val foodList = DataSource.foods
@@ -47,7 +50,8 @@ class AddItemActivity : AppCompatActivity() {
                 "Dairy"-> foodType = R.drawable.dairy
             }
 
-            foodList.add(Food(foodType,foodName,foodCount,foodExpire))
+            // TODO: add to data and update list
+            // foodList.add(Food(foodType,foodName,foodCount,foodExpire, "DATE ADDED", false))
 
             val intent2 = Intent(this,FridgeLayout::class.java)
             startActivity(intent2)

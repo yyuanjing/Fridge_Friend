@@ -19,7 +19,8 @@ class FoodCardAdapter (
             val foodName : TextView = view!!.findViewById(R.id.food_name)
             val foodQuantity : TextView = view!!.findViewById(R.id.food_quantity)
             val foodExpiration : TextView = view!!.findViewById(R.id.food_expiration)
-
+            val foodDateAdded : TextView = view!!.findViewById(R.id.date_added)
+            val expired : ImageView = view!!.findViewById(R.id.expired_image)
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodCardViewHolder {
@@ -45,6 +46,9 @@ class FoodCardAdapter (
             holder.foodName.text = thisFood.name
             holder.foodQuantity.text = thisFood.quantity
             holder.foodExpiration.text = thisFood.expiration_date
-
+            holder.foodDateAdded.text = thisFood.adding_date
+            if (thisFood.expired){
+                holder.expired.alpha = 1f
+            }
         }
 }
