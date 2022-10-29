@@ -9,10 +9,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 
-class FoodCardAdapter (
-    ): RecyclerView.Adapter<FoodCardAdapter.FoodCardViewHolder>() {
+class HistoryCardAdapter (
+    ): RecyclerView.Adapter<HistoryCardAdapter.FoodCardViewHolder>() {
 
-        private val data = DataSource.foods
+        private val data = DataSource.expired
 
         class FoodCardViewHolder(view: View?): RecyclerView.ViewHolder(view!!) {
             val foodImage : ImageView = view!!.findViewById(R.id.food_image)

@@ -14,9 +14,15 @@ class FridgeLayout : AppCompatActivity() {
         setContentView(R.layout.activity_fridge_layout)
 
         // Set listener to know if we need to move to the add item activity
-        val button = findViewById<Button>(R.id.add_item_button)
-        button.setOnClickListener(){
+        val addButton = findViewById<Button>(R.id.add_item_button)
+        addButton.setOnClickListener(){
             val intent = Intent(this, AddItemActivity::class.java)
+            startActivity(intent)
+        }
+
+        val historyButton = findViewById<Button>(R.id.history_button)
+        historyButton.setOnClickListener(){
+            val intent = Intent(this, HistoryActivity::class.java)
             startActivity(intent)
         }
 

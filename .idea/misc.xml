@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/mrnou/Desktop/android/Fridge_Friend/app/src/main/res/layout/activity_fridge_layout.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/mrnou/Desktop/android/Fridge_Friend/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/mrnou/Desktop/android/Fridge_Friend/app/src/main/res/layout/activity_view_history.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/mrnou/Desktop/android/Fridge_Friend/app/src/main/res/layout/card_view_layout.xml" value="0.22826086956521738" />
         <entry key="app/src/main/res/drawable/expired.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_add_item.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/activity_fridge_layout.xml" value="0.32977816816689315" />

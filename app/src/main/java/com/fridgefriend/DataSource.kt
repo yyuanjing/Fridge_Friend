@@ -36,4 +36,24 @@ object DataSource {
             false
         )
     )
+
+    val expired: MutableList<Food> = mutableListOf(
+        Food(
+            R.drawable.dairy,
+            "Cream Cheese",
+            "1",
+            "10/15/2022",
+            "9/29/2022",
+            true
+        ),
+        Food(
+            R.drawable.fruits,
+            "Papaya",
+            "3",
+            "10/18/2022",
+            "10/08/2022",
+            true
+        )
+    )
+
 }
