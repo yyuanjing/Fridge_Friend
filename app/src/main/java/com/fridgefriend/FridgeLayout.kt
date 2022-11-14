@@ -33,10 +33,10 @@ class FridgeLayout : AppCompatActivity() {
         recyclerview.layoutManager = LinearLayoutManager(this)
 
         // This will pass the ArrayList to our Adapter
-        val adapter = FoodCardAdapter()
+        //val adapter = FoodCardAdapter(recyclerViewInterface = null)
 
         // Setting the Adapter with the recyclerview
-        recyclerview.adapter = adapter
+        // recyclerview.adapter = adapter
 
     }
 

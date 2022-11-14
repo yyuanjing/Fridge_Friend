@@ -24,7 +24,7 @@
             android:scaleType="centerInside"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></ImageView>
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/food_name"
@@ -35,7 +35,7 @@
             android:text="@string/food_name"
 
             app:layout_constraintStart_toEndOf="@id/food_image"
-            app:layout_constraintTop_toTopOf="parent"></TextView>
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/food_quantity"
@@ -105,6 +105,14 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/delete_icon" />
+
+        <Button
+            android:id="@+id/view_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View"
+            tools:layout_editor_absoluteX="149dp"
+            tools:layout_editor_absoluteY="92dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
