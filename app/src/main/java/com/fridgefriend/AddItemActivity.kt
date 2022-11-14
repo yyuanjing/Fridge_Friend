@@ -28,9 +28,15 @@ class AddItemActivity : AppCompatActivity() {
 
     //check if expiration date is a valid date
     fun validateExpi(expi: String): Boolean {
+        if(expi.length < 8){
+            return false
+        }
         val mm = expi.substring(0, 2)
         val dd = expi.substring(3, 5)
-        val yy = expi.substring(6);
+        val yy = expi.substring(6)
+        if(expi.substring(2,3) != "/" || expi.substring(5,6) != "/"){
+            return false
+        }
         if( 0 > mm.toInt() || 12 < mm.toInt()){
             return false
         }
@@ -40,9 +46,7 @@ class AddItemActivity : AppCompatActivity() {
         if( 22 > yy.toInt() || 40 < yy.toInt()){
             return false
         }
-
         return true
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -95,10 +99,11 @@ class AddItemActivity : AppCompatActivity() {
             }
             else{
                 foodList.add(Food(foodType,foodName,foodCount,foodExpire, "DATE ADDED", false))
+                val intent2 = Intent(this, ListsActivity::class.java)
+                startActivity(intent2)
             }
 
-            val intent2 = Intent(this, ListsActivity::class.java)
-            startActivity(intent2)
+
         }
     }
 
