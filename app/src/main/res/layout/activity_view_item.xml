@@ -7,7 +7,7 @@
     tools:context=".ViewItemActivity">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/nameView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -15,7 +15,7 @@
         android:textSize="24sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="50dp" />
+        tools:layout_editor_absoluteY="160dp" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -24,4 +24,72 @@
         app:srcCompat="@drawable/fruits"
         tools:layout_editor_absoluteX="222dp"
         tools:layout_editor_absoluteY="50dp" />
+
+    <TextView
+        android:id="@+id/quantityView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quantity:"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="230dp" />
+
+    <TextView
+        android:id="@+id/quantityInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="68"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="150dp"
+        tools:layout_editor_absoluteY="230dp" />
+
+    <TextView
+        android:id="@+id/expirationView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Expiration Date:"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="280dp" />
+
+    <TextView
+        android:id="@+id/expirationInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10/13/22"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="210dp"
+        tools:layout_editor_absoluteY="280dp" />
+
+    <Button
+        android:id="@+id/eatButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Eat"
+        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteY="386dp" />
+
+    <Button
+        android:id="@+id/recipeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Find Recipes"
+        tools:layout_editor_absoluteX="137dp"
+        tools:layout_editor_absoluteY="466dp" />
+
+    <Button
+        android:id="@+id/removeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remove"
+        tools:layout_editor_absoluteX="157dp"
+        tools:layout_editor_absoluteY="545dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

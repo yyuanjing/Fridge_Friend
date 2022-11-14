@@ -66,6 +66,7 @@ class FridgeFragment : Fragment(), RecyclerViewInterface {
 
     override fun onItemClick(position: Int) {
         val intent = Intent(context, ViewItemActivity::class.java)
+        intent.putExtra("position", position)
         startActivity(intent)
     }
 
