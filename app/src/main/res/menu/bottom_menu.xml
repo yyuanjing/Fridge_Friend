@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/fridgeFragment"
+        android:icon="@drawable/fridge"
+        android:title="Fridge"/>
+    <item android:id="@+id/shoppingFragment"
+        android:icon="@drawable/fruits"
+        android:title="Shopping" />
+    <item android:id="@+id/historyFragment"
+        android:icon="@drawable/history_icon"
+        android:title="History" />
+</menu>
