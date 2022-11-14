@@ -9,12 +9,41 @@ import android.view.View
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import com.fridgefriend.databinding.ActivityAddItemBinding
+import androidx.constraintlayout.motion.widget.TransitionBuilder.validate
+import androidx.core.content.ContextCompat.startActivity
 import java.time.LocalDateTime
 
 class AddItemActivity : AppCompatActivity() {
 
     private val foodList = DataSource.foods
+
+    //check if quantity is valid (not 0)
+    fun validateQuant(quant: String): Boolean {
+        if(quant == "0"){
+            return false
+        }
+        return true
+
+    }
+
+    //check if expiration date is a valid date
+    fun validateExpi(expi: String): Boolean {
+        val mm = expi.substring(0, 2)
+        val dd = expi.substring(3, 5)
+        val yy = expi.substring(6);
+        if( 0 > mm.toInt() || 12 < mm.toInt()){
+            return false
+        }
+        if( 0 > dd.toInt() || 31 < dd.toInt()){
+            return false
+        }
+        if( 22 > yy.toInt() || 40 < yy.toInt()){
+            return false
+        }
+
+        return true
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,10 +78,24 @@ class AddItemActivity : AppCompatActivity() {
                 "Vegetable"-> foodType = R.drawable.vegetable
                 "Meat"-> foodType = R.drawable.proteins
                 "Dairy"-> foodType = R.drawable.dairy
+                "Other"-> foodType = R.drawable.fridge
             }
 
-            // TODO: add to data and update list
-            foodList.add(Food(foodType,foodName,foodCount,foodExpire, "DATE ADDED", false))
+            if(!validateQuant(foodCount)){
+                val text = "Invalid Quantity"
+                val duration = Toast.LENGTH_SHORT
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
+            }
+            else if(!validateExpi(foodExpire)){
+                val text = "Invalid Expiration Date"
+                val duration = Toast.LENGTH_SHORT
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
+            }
+            else{
+                foodList.add(Food(foodType,foodName,foodCount,foodExpire, "DATE ADDED", false))
+            }
 
             val intent2 = Intent(this, ListsActivity::class.java)
             startActivity(intent2)
