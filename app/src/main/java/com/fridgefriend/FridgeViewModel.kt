@@ -11,7 +11,7 @@ import com.fridgefriend.data.Food
  * View Model to keep a reference to the Inventory repository and an up-to-date list of all foods.
  *
  */
-class InventoryViewModel(private val foodDao: FoodDao) : ViewModel() {
+class FridgeViewModel(private val foodDao: FoodDao) : ViewModel() {
 
     /**
      * Inserts the new Food into database.
@@ -57,11 +57,11 @@ class InventoryViewModel(private val foodDao: FoodDao) : ViewModel() {
 /**
  * Factory class to instantiate the [ViewModel] instance.
  */
-class InventoryViewModelFactory(private val foodDao: FoodDao) : ViewModelProvider.Factory {
+class FridgeViewModelFactory(private val foodDao: FoodDao) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(InventoryViewModel::class.java)) {
+        if (modelClass.isAssignableFrom(FridgeViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return InventoryViewModel(foodDao) as T
+            return FridgeViewModel(foodDao) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
