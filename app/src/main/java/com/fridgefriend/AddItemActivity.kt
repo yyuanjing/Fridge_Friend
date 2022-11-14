@@ -133,6 +133,7 @@ class AddItemActivity : AppCompatActivity() {
                     foodExpire,
                     radioButton.text.toString()
                 )
+                addNotification()
                 val action = AddItemFragmentDirections.actionAddItemFragmentToItemListFragment()
                 findNavController().navigate(action)
             }
