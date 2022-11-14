@@ -9,14 +9,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.fridgefriend.databinding.FragmentFridgeBinding
-import com.google.android.material.snackbar.Snackbar
 
 
-class FridgeFragment : Fragment() {
+class FridgeFragment : Fragment(), RecyclerViewInterface {
     private var _binding: FragmentFridgeBinding? = null
     private val binding get() = _binding!!
     private lateinit var recyclerView: RecyclerView
     private var isLinearLayoutManager = true
+    private val data = DataSource.foods
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +31,6 @@ class FridgeFragment : Fragment() {
         _binding = FragmentFridgeBinding.inflate(inflater, container, false)
         val view = binding.root
 
-
         // getting the recyclerview by its id
         val recyclerview = view.findViewById<RecyclerView>(R.id.recyclerview)
 
@@ -39,7 +38,7 @@ class FridgeFragment : Fragment() {
         recyclerview.layoutManager = LinearLayoutManager(context)
 
         // This will pass the ArrayList to our Adapter
-        val adapter = FoodCardAdapter()
+        val adapter = FoodCardAdapter(this)
 
         // Setting the Adapter with the recyclerview
         recyclerview.adapter = adapter
@@ -50,12 +49,29 @@ class FridgeFragment : Fragment() {
             startActivity(intent)
         }
 
+//        val web = view.findViewById<View>(R.id.weblaunchbutton)
+//        web.setOnClickListener {
+//            val webIntent: Intent = Uri.parse("https://www.bonappetit.com/recipes").let { webpage ->
+//                Intent(Intent.ACTION_VIEW, webpage)
+//            }
+//        }
+
         return view
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onItemClick(position: Int) {
+        val intent = Intent(context, ViewItemActivity::class.java)
+        startActivity(intent)
+    }
+
+    override fun onItemClickDelete(position: Int) {
+        data.removeAt(position)
+        //TODO: update recycler view
     }
 
 }

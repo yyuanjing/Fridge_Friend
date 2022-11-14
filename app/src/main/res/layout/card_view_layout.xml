@@ -24,7 +24,7 @@
             android:scaleType="centerInside"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></ImageView>
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/food_name"
@@ -35,7 +35,7 @@
             android:text="@string/food_name"
 
             app:layout_constraintStart_toEndOf="@id/food_image"
-            app:layout_constraintTop_toTopOf="parent"></TextView>
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/food_quantity"
@@ -62,48 +62,36 @@
 
         </TextView>
 
-        <TextView
-            android:id="@+id/date_added"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="@string/date_added"
-            app:layout_constraintStart_toEndOf="@id/food_image"
-            app:layout_constraintStart_toStartOf="@id/food_expiration"
-            app:layout_constraintTop_toBottomOf="@id/food_expiration">
-
-        </TextView>
 
         <ImageView
             android:id="@+id/expired_image"
             android:layout_width="58dp"
             android:layout_height="57dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
             android:alpha="0"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/expired" />
-
-        <ImageView
-            android:id="@+id/edit_icon"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_marginEnd="15dp"
-            android:onClick="editItem"
-            app:layout_constraintBottom_toBottomOf="@id/remove_icon"
-            app:layout_constraintEnd_toStartOf="@id/remove_icon"
-            app:srcCompat="@drawable/edit_icon" />
-
-        <ImageView
-            android:id="@+id/remove_icon"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="5dp"
-            android:onClick="removeItem"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/expired" />
+
+        <Button
+            android:id="@+id/view_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="View"
+            app:layout_constraintStart_toStartOf="@id/food_expiration"
+            app:layout_constraintTop_toBottomOf="@id/food_expiration"/>
+
+        <ImageButton
+            android:id="@+id/delete_button"
+            android:layout_width="33dp"
+            android:layout_height="31dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="#6C00F8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/delete_icon" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
