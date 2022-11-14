@@ -1,7 +1,6 @@
 package com.fridgefriend
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,7 +9,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.fridgefriend.databinding.FragmentFridgeBinding
-import com.google.android.material.snackbar.Snackbar
 
 
 class FridgeFragment : Fragment(), RecyclerViewInterface {
@@ -18,6 +16,7 @@ class FridgeFragment : Fragment(), RecyclerViewInterface {
     private val binding get() = _binding!!
     private lateinit var recyclerView: RecyclerView
     private var isLinearLayoutManager = true
+    private val data = DataSource.foods
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,8 +65,13 @@ class FridgeFragment : Fragment(), RecyclerViewInterface {
     }
 
     override fun onItemClick(position: Int) {
-        val intent = Intent(context, MainActivity::class.java)
+        val intent = Intent(context, ViewItemActivity::class.java)
         startActivity(intent)
+    }
+
+    override fun onItemClickDelete(position: Int) {
+        data.removeAt(position)
+        //TODO: update recycler view
     }
 
 }

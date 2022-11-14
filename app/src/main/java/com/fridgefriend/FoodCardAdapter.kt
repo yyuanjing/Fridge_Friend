@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
@@ -25,9 +26,9 @@ class FoodCardAdapter (
             val foodName : TextView = view!!.findViewById(R.id.food_name)
             val foodQuantity : TextView = view!!.findViewById(R.id.food_quantity)
             val foodExpiration : TextView = view!!.findViewById(R.id.food_expiration)
-            val foodDateAdded : TextView = view!!.findViewById(R.id.date_added)
             val expired : ImageView = view!!.findViewById(R.id.expired_image)
             val view_button : Button = view!!.findViewById(R.id.view_button)
+            val delete_button : ImageButton = view!!.findViewById(R.id.delete_button)
 
         }
 
@@ -48,10 +49,10 @@ class FoodCardAdapter (
             holder.foodName.text = thisFood.name
             holder.foodQuantity.text = thisFood.quantity
             holder.foodExpiration.text = thisFood.expiration_date
-            holder.foodDateAdded.text = thisFood.adding_date
             if (thisFood.expired){
                 holder.expired.alpha = 1f
             }
             holder.view_button.setOnClickListener{recyclerViewInterface.onItemClick(position)}
+            holder.delete_button.setOnClickListener{recyclerViewInterface.onItemClickDelete(position)}
         }
 }
