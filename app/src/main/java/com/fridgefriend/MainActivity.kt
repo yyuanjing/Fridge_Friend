@@ -11,7 +11,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import com.fridgefriend.databinding.ActivityMainBinding
+//import com.fridgefriend.databinding.ActivityMainBinding
 import kotlinx.coroutines.delay
 
 
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         val button = findViewById<Button>(R.id.open_fridge_button)
         button.setOnClickListener(){
             scaleAndFade()
-            val intent = Intent(this, FridgeLayout::class.java)
+            val intent = Intent(this, ListsActivity::class.java)
             startActivity(intent)
             finish()
         }

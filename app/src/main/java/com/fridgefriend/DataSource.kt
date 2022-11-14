@@ -3,7 +3,7 @@ package com.fridgefriend
 object DataSource {
 
     val foods: MutableList<Food> = mutableListOf(
-        Food(
+        /*Food(
             R.drawable.dairy,
             "Milk",
             "1",
@@ -34,11 +34,11 @@ object DataSource {
             "12/14/2022",
             "9/25/2022",
             false
-        )
+        )*/
     )
 
     val expired: MutableList<Food> = mutableListOf(
-        Food(
+        /*Food(
             R.drawable.dairy,
             "Cream Cheese",
             "1",
@@ -53,7 +53,7 @@ object DataSource {
             "10/18/2022",
             "10/08/2022",
             true
-        )
+        )*/
     )
 
 }

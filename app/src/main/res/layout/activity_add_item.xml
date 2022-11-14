@@ -20,7 +20,7 @@
         tools:layout_editor_absoluteY="73dp" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/food_icon"
         android:layout_width="125dp"
         android:layout_height="125dp"
         android:layout_marginTop="30dp"
@@ -57,7 +57,7 @@
         android:layout_marginTop="16dp"
         android:text="Type"
         app:layout_constraintStart_toStartOf="@id/input_name"
-        app:layout_constraintTop_toBottomOf="@id/imageView" />
+        app:layout_constraintTop_toBottomOf="@id/food_icon" />
 
     <RadioGroup
         android:id="@+id/type_options"
@@ -66,37 +66,43 @@
         android:checkedButton="@id/option_fruit"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="@id/text_type"
-        app:layout_constraintTop_toBottomOf="@id/text_type">
+        app:layout_constraintTop_toBottomOf="@id/text_type"
+        android:onClick="updateImage">
 
         <RadioButton
             android:id="@+id/option_fruit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fruit" />
+            android:text="Fruit"
+            android:onClick="updateImage"/>
 
         <RadioButton
             android:id="@+id/option_vegetable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Vegetable" />
+            android:text="Vegetable"
+            android:onClick="updateImage"/>
 
         <RadioButton
             android:id="@+id/option_meat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Meat" />
+            android:text="Meat"
+            android:onClick="updateImage"/>
 
         <RadioButton
             android:id="@+id/option_dairy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dairy" />
+            android:text="Dairy"
+            android:onClick="updateImage"/>
 
         <RadioButton
             android:id="@+id/option_other"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Other" />
+            android:text="Other"
+            android:onClick="updateImage"/>
 
     </RadioGroup>
 
