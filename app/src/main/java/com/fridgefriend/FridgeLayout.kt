@@ -41,7 +41,7 @@ class FridgeLayout : AppCompatActivity() {
     }
 
     fun editItem(view : View){
-        val intent = Intent(this, AddItemActivity::class.java)
+        val intent = Intent(this, EditItemActivity::class.java)
         startActivity(intent)
     }
 

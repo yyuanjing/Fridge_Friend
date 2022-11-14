@@ -4,10 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_add_item.xml" value="0.12771739130434784" />
+        <entry key="app/src/main/res/layout/activity_edit_item.xml" value="0.13949275362318841" />
         <entry key="app/src/main/res/layout/activity_fridge_layout.xml" value="0.12771739130434784" />
         <entry key="app/src/main/res/layout/activity_lists.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.12771739130434784" />
-        <entry key="app/src/main/res/layout/card_view_layout.xml" value="0.12771739130434784" />
+        <entry key="app/src/main/res/layout/card_view_layout.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_fridge.xml" value="0.1" />
       </map>
     </option>
   </component>

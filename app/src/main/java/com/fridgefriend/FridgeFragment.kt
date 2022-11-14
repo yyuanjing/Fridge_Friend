@@ -1,6 +1,7 @@
 package com.fridgefriend
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -49,6 +50,13 @@ class FridgeFragment : Fragment() {
             val intent = Intent(context, AddItemActivity::class.java)
             startActivity(intent)
         }
+
+//        val web = view.findViewById<View>(R.id.weblaunchbutton)
+//        web.setOnClickListener {
+//            val webIntent: Intent = Uri.parse("https://www.bonappetit.com/recipes").let { webpage ->
+//                Intent(Intent.ACTION_VIEW, webpage)
+//            }
+//        }
 
         return view
     }
