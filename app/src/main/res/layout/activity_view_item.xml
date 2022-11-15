@@ -10,86 +10,107 @@
         android:id="@+id/nameView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="164dp"
+        android:layout_marginEnd="56dp"
         android:text="TextView"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="160dp" />
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="134dp"
         android:layout_height="133dp"
-        app:srcCompat="@drawable/fruits"
-        tools:layout_editor_absoluteX="222dp"
-        tools:layout_editor_absoluteY="50dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.79"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.11"
+        app:srcCompat="@drawable/fruits" />
 
     <TextView
         android:id="@+id/quantityView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="36dp"
         android:text="Quantity:"
         android:textColor="#000000"
+
         android:textSize="20sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="230dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameView" />
 
     <TextView
         android:id="@+id/quantityInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="36dp"
         android:text="68"
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="150dp"
-        tools:layout_editor_absoluteY="230dp" />
+        app:layout_constraintStart_toEndOf="@+id/quantityView"
+        app:layout_constraintTop_toBottomOf="@+id/nameView" />
 
     <TextView
         android:id="@+id/expirationView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="32dp"
         android:text="Expiration Date:"
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="280dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quantityView" />
 
     <TextView
         android:id="@+id/expirationInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
         android:text="10/13/22"
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="210dp"
-        tools:layout_editor_absoluteY="280dp" />
+        app:layout_constraintStart_toEndOf="@+id/expirationView"
+        app:layout_constraintTop_toBottomOf="@+id/quantityView" />
 
     <Button
         android:id="@+id/eatButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="76dp"
         android:text="Eat"
-        tools:layout_editor_absoluteX="160dp"
-        tools:layout_editor_absoluteY="386dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/expirationView" />
 
     <Button
         android:id="@+id/recipeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="32dp"
         android:text="Find Recipes"
-        tools:layout_editor_absoluteX="137dp"
-        tools:layout_editor_absoluteY="466dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eatButton" />
 
     <Button
         android:id="@+id/removeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="32dp"
         android:text="Remove"
-        tools:layout_editor_absoluteX="157dp"
-        tools:layout_editor_absoluteY="545dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recipeButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>
