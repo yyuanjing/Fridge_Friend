@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.fridgefriend.databinding.FragmentFridgeBinding
@@ -29,6 +30,8 @@ class HistoryFragment : Fragment() {
         _binding = FragmentHistoryBinding.inflate(inflater, container, false)
         val view = binding.root
 
+        // Set this fragment's title
+        (activity as AppCompatActivity).supportActionBar?.title = "Your History"
 
         // getting the recyclerview by its id
         val recyclerview = view.findViewById<RecyclerView>(R.id.historyrecycler)
@@ -49,5 +52,10 @@ class HistoryFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as AppCompatActivity).supportActionBar?.title = "Your History"
     }
 }

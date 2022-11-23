@@ -98,7 +98,7 @@ class AddItemActivity : AppCompatActivity() {
                 toast.show()
             }
             else{
-                foodList.add(Food(foodType,foodName,foodCount,foodExpire, false))
+                foodList.add(Food(foodType,foodName,foodCount,foodExpire, false, "", ""))
                 val intent2 = Intent(this, ListsActivity::class.java)
                 startActivity(intent2)
             }

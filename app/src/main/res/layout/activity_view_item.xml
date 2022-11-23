@@ -7,110 +7,150 @@
     tools:context=".ViewItemActivity">
 
     <TextView
-        android:id="@+id/nameView"
+        android:id="@+id/item_name_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="164dp"
-        android:layout_marginEnd="56dp"
-        android:text="TextView"
+        android:layout_marginTop="35dp"
+        android:text="Food Item"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/icon_image"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/icon_image"
         android:layout_width="134dp"
         android:layout_height="133dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.79"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.11"
         app:srcCompat="@drawable/fruits" />
 
     <TextView
-        android:id="@+id/quantityView"
+        android:id="@+id/quantity_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="13dp"
         android:text="Quantity:"
         android:textColor="#000000"
-
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameView" />
+        app:layout_constraintTop_toBottomOf="@+id/item_name_text" />
 
     <TextView
-        android:id="@+id/quantityInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:layout_marginTop="36dp"
-        android:text="68"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/quantityView"
-        app:layout_constraintTop_toBottomOf="@+id/nameView" />
-
-    <TextView
-        android:id="@+id/expirationView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="32dp"
-        android:text="Expiration Date:"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/quantityView" />
-
-    <TextView
-        android:id="@+id/expirationInput"
+        android:id="@+id/quantity_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:text="10/13/22"
-        android:textColor="#000000"
+        android:text="%%"
+        android:textColor="#673AB7"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/expirationView"
-        app:layout_constraintTop_toBottomOf="@+id/quantityView" />
+        app:layout_constraintStart_toEndOf="@id/quantity_text"
+        app:layout_constraintTop_toTopOf="@id/quantity_text" />
 
-    <Button
-        android:id="@+id/eatButton"
+    <TextView
+        android:id="@+id/expiration_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="76dp"
-        android:text="Eat"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:text="Expiration Date:"
+        android:textColor="#000000"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/expirationView" />
+        app:layout_constraintTop_toBottomOf="@+id/quantity_text" />
 
-    <Button
-        android:id="@+id/recipeButton"
+    <TextView
+        android:id="@+id/expiration_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="32dp"
-        android:text="Find Recipes"
+        android:layout_marginStart="8dp"
+        android:text="%%/%%/%%"
+        android:textColor="#673AB7"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/expiration_text"
+        app:layout_constraintTop_toTopOf="@id/expiration_text" />
+
+    <TextView
+        android:id="@+id/type_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:text="Type:"
+        android:textColor="#000000"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eatButton" />
+        app:layout_constraintTop_toBottomOf="@+id/expiration_text" />
 
-    <Button
-        android:id="@+id/removeButton"
+    <TextView
+        android:id="@+id/type_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="8dp"
+        android:text="type text"
+        android:textColor="#673AB7"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/type_text"
+        app:layout_constraintTop_toTopOf="@id/type_text" />
+
+    <TextView
+        android:id="@+id/notes_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:text="Notes:"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/type_text" />
+
+    <TextView
+        android:id="@+id/notes_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:text="Notes text"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notes_text"
+        app:layout_constraintWidth_max="370dp" />
+
+    <Button
+        android:id="@+id/delete_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
         android:text="Remove"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recipeButton" />
+        app:layout_constraintTop_toBottomOf="@+id/notes_input" />
+
+    <Button
+        android:id="@+id/recipe_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="Find Recipes"
+        app:layout_constraintStart_toEndOf="@+id/delete_button"
+        app:layout_constraintTop_toTopOf="@+id/delete_button" />
+
+    <Button
+        android:id="@+id/edit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="Edit"
+        app:layout_constraintStart_toEndOf="@+id/recipe_button"
+        app:layout_constraintTop_toTopOf="@+id/recipe_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>

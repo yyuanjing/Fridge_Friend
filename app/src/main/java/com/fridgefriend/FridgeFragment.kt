@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.fridgefriend.databinding.FragmentFridgeBinding
@@ -30,6 +31,8 @@ class FridgeFragment : Fragment(), RecyclerViewInterface {
         // Inflate the layout for this fragment
         _binding = FragmentFridgeBinding.inflate(inflater, container, false)
         val view = binding.root
+
+        (activity as AppCompatActivity).supportActionBar?.title = "Your Fridge"
 
         // getting the recyclerview by its id
         val recyclerview = view.findViewById<RecyclerView>(R.id.recyclerview)
@@ -73,6 +76,11 @@ class FridgeFragment : Fragment(), RecyclerViewInterface {
     override fun onItemClickDelete(position: Int) {
         data.removeAt(position)
         //TODO: update recycler view
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as AppCompatActivity).supportActionBar?.title = "Your Fridge"
     }
 
 }
