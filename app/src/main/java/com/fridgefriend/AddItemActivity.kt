@@ -7,35 +7,18 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.*
-import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.Fragment
-import com.fridgefriend.FridgeViewModel
 import androidx.constraintlayout.motion.widget.TransitionBuilder.validate
 import androidx.core.content.ContextCompat.startActivity
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
-import androidx.navigation.fragment.findNavController
-import androidx.room.Room
-import com.fridgefriend.data.FoodRoomDatabase
-import com.fridgefriend.data.FoodRoomDatabase.Companion.getDatabase
 import java.time.LocalDateTime
-
 
 class AddItemActivity : AppCompatActivity() {
 
     private val foodList = DataSource.foods
-    lateinit var food: Food
-
-    //data persistence: initializing db through view model?
-    private val viewModel: FridgeViewModel by viewModels {
-        FridgeViewModelFactory(
-            (application as FridgeApplication).database.foodDao())
-    }
 
     //check if quantity is valid (not 0)
-    private fun validateQuant(quant: String): Boolean {
+    fun validateQuant(quant: String): Boolean {
         if(quant == "0"){
             return false
         }
@@ -44,7 +27,7 @@ class AddItemActivity : AppCompatActivity() {
     }
 
     //check if expiration date is a valid date
-    private fun validateExpi(expi: String): Boolean {
+    fun validateExpi(expi: String): Boolean {
         if(expi.length < 8){
             return false
         }
@@ -102,16 +85,6 @@ class AddItemActivity : AppCompatActivity() {
                 "Other"-> foodType = R.drawable.fridge
             }
 
-            //data persistence: add to database
-            if (validateQuant(foodCount) && validateExpi(foodExpire)) {
-                viewModel.addNewFood(
-                    foodName,
-                    foodCount,
-                    foodExpire,
-                    radioButton.text.toString()
-                )
-            }
-
             if(!validateQuant(foodCount)){
                 val text = "Invalid Quantity"
                 val duration = Toast.LENGTH_SHORT
@@ -125,11 +98,10 @@ class AddItemActivity : AppCompatActivity() {
                 toast.show()
             }
             else{
-                foodList.add(Food(foodType,foodName,foodCount,foodExpire, false))
+                foodList.add(Food(foodType,foodName,foodCount,foodExpire, false, "", ""))
                 val intent2 = Intent(this, ListsActivity::class.java)
                 startActivity(intent2)
             }
-
 
 
         }

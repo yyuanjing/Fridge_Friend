@@ -44,11 +44,11 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/fridge" />
 
-    <!-- TODO: add OnClick to ImageView instead of a button on top of it -->
+    <!-- TODO: add OnClick to ImageView instead of a button on top of it-->
     <Button
         android:id="@+id/open_fridge_button"
-        android:layout_width="307dp"
-        android:layout_height="327dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

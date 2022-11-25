@@ -6,6 +6,7 @@ import android.view.Menu
 import android.view.MenuInflater
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
 import com.fridgefriend.databinding.ActivityMainBinding
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
@@ -27,7 +28,9 @@ class ListsActivity : AppCompatActivity() {
 
         navController = navHostFragment.navController
 
-        setupActionBarWithNavController(navController)
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(R.id.fridgeFragment, R.id.shoppingFragment, R.id.historyFragment))
+        setupActionBarWithNavController(navController, appBarConfiguration)
 
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_nav)
         bottomNav.setupWithNavController(navController)
@@ -35,8 +38,6 @@ class ListsActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.bottom_menu,menu)
-        return super.onCreateOptionsMenu(menu)
+        return false
     }
 }
