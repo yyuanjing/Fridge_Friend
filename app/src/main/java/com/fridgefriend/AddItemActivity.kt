@@ -7,6 +7,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.TransitionBuilder.validate
@@ -16,6 +17,13 @@ import java.time.LocalDateTime
 class AddItemActivity : AppCompatActivity() {
 
     private val foodList = DataSource.foods
+    lateinit var food: Food
+
+    //data persistence: initializing db through view model?
+    private val viewModel: FridgeViewModel by viewModels {
+        FridgeViewModelFactory(
+            (application as FridgeApplication).database.foodDao())
+    }
 
     //check if quantity is valid (not 0)
     fun validateQuant(quant: String): Boolean {
@@ -83,6 +91,16 @@ class AddItemActivity : AppCompatActivity() {
                 "Meat"-> foodType = R.drawable.proteins
                 "Dairy"-> foodType = R.drawable.dairy
                 "Other"-> foodType = R.drawable.fridge
+            }
+
+            //data persistence: add to database
+            if (validateQuant(foodCount) && validateExpi(foodExpire)) {
+                viewModel.addNewFood(
+                    foodName,
+                    foodCount,
+                    foodExpire,
+                    radioButton.text.toString()
+                )
             }
 
             if(!validateQuant(foodCount)){
