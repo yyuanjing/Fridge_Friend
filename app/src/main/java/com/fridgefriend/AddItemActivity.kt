@@ -7,30 +7,35 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.Fragment
 import com.fridgefriend.FridgeViewModel
 import androidx.constraintlayout.motion.widget.TransitionBuilder.validate
 import androidx.core.content.ContextCompat.startActivity
 import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import androidx.navigation.fragment.findNavController
+import androidx.room.Room
+import com.fridgefriend.data.FoodRoomDatabase
+import com.fridgefriend.data.FoodRoomDatabase.Companion.getDatabase
 import java.time.LocalDateTime
+
 
 class AddItemActivity : AppCompatActivity() {
 
     private val foodList = DataSource.foods
-
-    private val viewModel: FridgeViewModel by activityViewModels {
-        FridgeViewModelFactory(
-            (activity?.application as FridgeApplication).database
-                .foodDao()
-        )
-    }
-
     lateinit var food: Food
 
+    //data persistence: initializing db through view model?
+    private val viewModel: FridgeViewModel by viewModels {
+        FridgeViewModelFactory(
+            (application as FridgeApplication).database.foodDao())
+    }
+
     //check if quantity is valid (not 0)
-    fun validateQuant(quant: String): Boolean {
+    private fun validateQuant(quant: String): Boolean {
         if(quant == "0"){
             return false
         }
@@ -39,7 +44,7 @@ class AddItemActivity : AppCompatActivity() {
     }
 
     //check if expiration date is a valid date
-    fun validateExpi(expi: String): Boolean {
+    private fun validateExpi(expi: String): Boolean {
         if(expi.length < 8){
             return false
         }
@@ -72,8 +77,6 @@ class AddItemActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        //moved this to addNewItem for data persistence
-
         // Set listener to done to take the input from edittext objects and put them in the list
         val doneButton = findViewById<Button>(R.id.button_done)
         doneButton.setOnClickListener(){
@@ -99,6 +102,16 @@ class AddItemActivity : AppCompatActivity() {
                 "Other"-> foodType = R.drawable.fridge
             }
 
+            //data persistence: add to database
+            if (validateQuant(foodCount) && validateExpi(foodExpire)) {
+                viewModel.addNewFood(
+                    foodName,
+                    foodCount,
+                    foodExpire,
+                    radioButton.text.toString()
+                )
+            }
+
             if(!validateQuant(foodCount)){
                 val text = "Invalid Quantity"
                 val duration = Toast.LENGTH_SHORT
@@ -117,81 +130,10 @@ class AddItemActivity : AppCompatActivity() {
                 startActivity(intent2)
             }
 
-            if (validateQuant(foodCount) && validateExpi(foodExpire)) {
-                viewModel.addNewFood(
-                    foodName,
-                    foodCount,
-                    foodExpire,
-                    radioButton.text.toString()
-                )
-                val action = AddItemFragmentDirections.actionAddItemFragmentToItemListFragment()
-                findNavController().navigate(action)
-            }
+
 
         }
     }
-
-// DATA PERSISTENCE???
-//    fun addNewItem() {
-//        val nameET = findViewById<View>(R.id.input_name) as EditText
-//        val foodName = nameET.text.toString()
-//
-//        val quantityET = findViewById<View>(R.id.input_quantity) as EditText
-//        val foodCount = quantityET.text.toString()
-//
-//        val expireET = findViewById<View>(R.id.input_exp_date) as EditText
-//        val foodExpire = expireET.text.toString()
-//
-//        val radioGroup: RadioGroup = findViewById(R.id.type_options)
-//        val selectedOption: Int = radioGroup!!.checkedRadioButtonId
-//        val radioButton: RadioButton = findViewById(selectedOption)
-//
-//        var foodType = R.drawable.fruits
-//        when (radioButton.text){
-//            "Fruit"-> foodType = R.drawable.fruits
-//            "Vegetable"-> foodType = R.drawable.vegetable
-//            "Meat"-> foodType = R.drawable.proteins
-//            "Dairy"-> foodType = R.drawable.dairy
-//            "Other"-> foodType = R.drawable.fridge
-//        }
-//
-//        if(!validateQuant(foodCount)){
-//            val text = "Invalid Quantity"
-//            val duration = Toast.LENGTH_SHORT
-//            val toast = Toast.makeText(applicationContext, text, duration)
-//            toast.show()
-//        }
-//        else if(!validateExpi(foodExpire)){
-//            val text = "Invalid Expiration Date"
-//            val duration = Toast.LENGTH_SHORT
-//            val toast = Toast.makeText(applicationContext, text, duration)
-//            toast.show()
-//        }
-//        else{
-//            foodList.add(Food(foodType,foodName,foodCount,foodExpire, "DATE ADDED", false))
-//            val intent2 = Intent(this, ListsActivity::class.java)
-//            startActivity(intent2)
-//        }
-//
-//        if (validateQuant(foodCount) && validateExpi(foodExpire)) {
-//            viewModel.addNewFood(
-//                foodName,
-//                foodCount,
-//                foodExpire,
-//                radioButton.text.toString()
-//            )
-//            val action = AddItemFragmentDirections.actionAddItemFragmentToItemListFragment()
-//            findNavController().navigate(action)
-//        }
-//    }
-//
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//        val doneButton = findViewById<Button>(R.id.button_done)
-//        doneButton.setOnClickListener(){
-//            addNewItem()
-//        }
-//    }
 
     fun updateImage(view: View){
         val foodImage = findViewById<ImageView>(R.id.food_icon)
