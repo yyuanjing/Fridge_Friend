@@ -15,8 +15,8 @@ class HistoryActivity : AppCompatActivity() {
         // Set listener to go back to fridge page on click
         val button = findViewById<Button>(R.id.back_button)
         button.setOnClickListener(){
-            val intent = Intent(this, FridgeLayout::class.java)
-            startActivity(intent)
+            // val intent = Intent(this, FridgeLayout::class.java)
+            // startActivity(intent)
         }
 
         // getting the recyclerview by its id

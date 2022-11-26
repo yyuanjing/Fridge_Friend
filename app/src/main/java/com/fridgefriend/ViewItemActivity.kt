@@ -1,5 +1,7 @@
 package com.fridgefriend
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -19,7 +21,6 @@ class ViewItemActivity : AppCompatActivity() {
         supportActionBar!!.setHomeButtonEnabled(true)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
-
         val intent = intent
 
         val position = intent.getIntExtra("position", 0)
@@ -29,20 +30,26 @@ class ViewItemActivity : AppCompatActivity() {
         findViewById<ImageView>(R.id.icon_image).setImageResource(currFood.imageResourceId)
         findViewById<TextView>(R.id.quantity_input).text = currFood.quantity
         findViewById<TextView>(R.id.expiration_input).text = currFood.expiration_date
-        // findViewById<TextView>(R.id.type_input).text = currFood.imageResourceId as String
+        findViewById<TextView>(R.id.type_input).text = currFood.type
+        findViewById<TextView>(R.id.notes_input).text = currFood.notes
 
         findViewById<Button>(R.id.delete_button).setOnClickListener(){
 
         }
 
         findViewById<Button>(R.id.recipe_button).setOnClickListener(){
-
+            val queryUrl: Uri = Uri.parse("https://www.google.com/search?q=${currFood.name}+recipes")
+            val intent = Intent(Intent.ACTION_VIEW, queryUrl)
+            startActivity(intent)
         }
 
         findViewById<Button>(R.id.edit_button).setOnClickListener(){
-
+            val intent = Intent(this, AddItemActivity::class.java)
+            intent.putExtra("newItem", false)
+            intent.putExtra("position", position)
+            startActivity(intent)
+            finish()
         }
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

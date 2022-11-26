@@ -18,7 +18,15 @@
             android:exported="false" />
         <activity
             android:name=".ListsActivity"
-            android:exported="false" />
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".FridgeLayout"
             android:exported="false" />
@@ -37,6 +45,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
+
+</application>
 
 </manifest>

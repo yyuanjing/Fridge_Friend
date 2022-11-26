@@ -16,7 +16,7 @@ class HistoryCardAdapter (
 
         class FoodCardViewHolder(view: View?): RecyclerView.ViewHolder(view!!) {
             val foodImage : ImageView = view!!.findViewById(R.id.food_image)
-            val foodName : TextView = view!!.findViewById(R.id.food_name)
+            val foodName : TextView = view!!.findViewById(R.id.food_name_input)
             val foodQuantity : TextView = view!!.findViewById(R.id.food_quantity)
             val foodExpiration : TextView = view!!.findViewById(R.id.food_expiration)
             val expired : ImageView = view!!.findViewById(R.id.expired_image)
