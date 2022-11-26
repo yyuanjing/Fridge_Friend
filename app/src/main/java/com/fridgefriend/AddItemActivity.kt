@@ -1,7 +1,6 @@
 package com.fridgefriend
 
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.media.Image
 import android.os.Build
@@ -10,6 +9,7 @@ import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
+import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.TransitionBuilder.validate
@@ -20,6 +20,13 @@ import java.util.*
 class AddItemActivity : AppCompatActivity() {
 
     private val foodList = DataSource.foods
+    lateinit var food: Food
+
+    //data persistence: initializing db through view model?
+    private val viewModel: FridgeViewModel by viewModels {
+        FridgeViewModelFactory(
+            (application as FridgeApplication).database.foodDao())
+    }
 
     // Helper method to check if quantity is valid (bigger than 0)
     private fun validateQuant(quant: String): Boolean {
@@ -149,7 +156,15 @@ class AddItemActivity : AppCompatActivity() {
                     val toast = Toast.makeText(applicationContext, text, duration)
                     toast.show()
                 }  else if (newItem){
-                    // add new item
+                    // add new item:
+                    // add to viewModel for data persistence
+                    viewModel.addNewFood(
+                        foodName,
+                        foodCount,
+                        foodExpire,
+                        radioButton.text.toString()
+                    )
+                    // add to data list
                     foodList.add(Food(foodType,foodName,foodCount,foodExpire, false,
                         foodTypeString, foodNotes))
                     val intent2 = Intent(this, ListsActivity::class.java)
