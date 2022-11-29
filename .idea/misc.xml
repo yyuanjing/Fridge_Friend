@@ -3,28 +3,26 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/drawable/add_icon.xml" value="0.2235" />
-        <entry key="app/src/main/res/drawable/web_24.xml" value="0.2235" />
-        <entry key="app/src/main/res/layout-v33/activity_add_item.xml" value="0.28125" />
-        <entry key="app/src/main/res/layout/activity_add_item.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_edit_item.xml" value="0.13949275362318841" />
-        <entry key="app/src/main/res/layout/activity_fridge_layout.xml" value="0.2912504113238791" />
-        <entry key="app/src/main/res/layout/activity_lists.xml" value="0.29505462646484376" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22957763671875" />
-        <entry key="app/src/main/res/layout/activity_view_history.xml" value="0.28229166666666666" />
-        <entry key="app/src/main/res/layout/activity_view_item.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/card_view_layout.xml" value="0.5258438110351563" />
-        <entry key="app/src/main/res/layout/fragment_fridge.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_history.xml" value="0.28229166666666666" />
-        <entry key="app/src/main/res/layout/fragment_shopping.xml" value="0.28229166666666666" />
-        <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.1" />
-        <entry key="app/src/main/res/menu/options_menu.xml" value="0.28125" />
-        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2235" />
-        <entry key="app/src/main/res/xml/searchable.xml" value="0.28125" />
+        <entry key="..\:/Users/mrnou/AndroidStudioProjects/Fridge_Friend/app/src/main/res/layout/activity_add_item.xml" value="0.1480978260869565" />
+        <entry key="..\:/Users/mrnou/AndroidStudioProjects/Fridge_Friend/app/src/main/res/layout/activity_lists.xml" value="0.1480978260869565" />
+        <entry key="..\:/Users/mrnou/AndroidStudioProjects/Fridge_Friend/app/src/main/res/layout/activity_view_history.xml" value="0.1" />
+        <entry key="..\:/Users/mrnou/AndroidStudioProjects/Fridge_Friend/app/src/main/res/layout/activity_view_item.xml" value="0.1480978260869565" />
+        <entry key="..\:/Users/mrnou/AndroidStudioProjects/Fridge_Friend/app/src/main/res/layout/card_shopping_layout.xml" value="0.264" />
+        <entry key="..\:/Users/mrnou/AndroidStudioProjects/Fridge_Friend/app/src/main/res/layout/card_view_layout.xml" value="0.1" />
+        <entry key="..\:/Users/mrnou/AndroidStudioProjects/Fridge_Friend/app/src/main/res/layout/fragment_fridge.xml" value="0.1480978260869565" />
+        <entry key="..\:/Users/mrnou/AndroidStudioProjects/Fridge_Friend/app/src/main/res/layout/fragment_history.xml" value="0.1" />
+        <entry key="..\:/Users/mrnou/AndroidStudioProjects/Fridge_Friend/app/src/main/res/layout/fragment_shopping.xml" value="0.1480978260869565" />
+        <entry key="app/src/main/res/drawable/delete_icon.xml" value="0.174" />
+        <entry key="app/src/main/res/layout/activity_add_item.xml" value="0.12771739130434784" />
+        <entry key="app/src/main/res/layout/activity_fridge_layout.xml" value="0.12771739130434784" />
+        <entry key="app/src/main/res/layout/activity_lists.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.12771739130434784" />
+        <entry key="app/src/main/res/layout/activity_view_item.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/card_view_layout.xml" value="0.3446256554645041" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
