@@ -23,12 +23,12 @@ class AddItemActivity : AppCompatActivity() {
     lateinit var food: Food
 
     //data persistence: initializing db through view model?
-    /*
+
     private val viewModel: FridgeViewModel by viewModels {
         FridgeViewModelFactory(
             (application as FridgeApplication).database.foodDao())
     }
-    */
+
 
     // Helper method to check if quantity is valid (bigger than 0)
     private fun validateQuant(quant: String): Boolean {
@@ -160,14 +160,15 @@ class AddItemActivity : AppCompatActivity() {
                 }  else if (newItem){
                     // add new item:
                     // add to viewModel for data persistence
-                    /*
+
                     viewModel.addNewFood(
                         foodName,
                         foodCount,
                         foodExpire,
-                        radioButton.text.toString()
+                        radioButton.text.toString(),
+                        foodNotes
                     )
-                    */
+
                     // add to data list
                     foodList.add(Food(foodType,foodName,foodCount,foodExpire, false,
                         foodTypeString, foodNotes))

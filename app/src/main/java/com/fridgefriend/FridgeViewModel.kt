@@ -1,23 +1,23 @@
 package com.fridgefriend
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.fridgefriend.data.FoodDao
 import kotlinx.coroutines.launch
 import com.fridgefriend.data.Food
+import kotlinx.coroutines.Dispatchers
 
 /**
  * View Model to keep a reference to the Inventory repository and an up-to-date list of all foods.
  *
  */
 class FridgeViewModel(private val foodDao: FoodDao) : ViewModel() {
+    val allFood: LiveData<List<Food>> = foodDao.getFoods().asLiveData()
 
     /**
      * Inserts the new Food into database.
      */
-    fun addNewFood(foodName: String, foodQuantity: String, foodExpDate: String, foodType: String) {
-        val newFood = getNewFoodEntry(foodName, foodQuantity, foodExpDate, foodType)
+    fun addNewFood(foodName: String, foodQuantity: String, foodExpDate: String, foodType: String, foodNotes: String) {
+        val newFood = getNewFoodEntry(foodName, foodQuantity, foodExpDate, foodType, foodNotes)
         insertFood(newFood)
     }
 
@@ -40,16 +40,28 @@ class FridgeViewModel(private val foodDao: FoodDao) : ViewModel() {
         return true
     }
 
+    fun deleteFood(pos: Int) {
+        var food = foodDao.getFood(pos) as Food //KT
+        viewModelScope.launch(Dispatchers.IO) {
+            // call the DAO method to delete a food to the database here
+            viewModelScope.launch {
+                foodDao.delete(food)
+            }
+        }
+    }
+
     /**
      * Returns an instance of the [Food] entity class with the food info entered by the user.
      * This will be used to add a new entry to the Inventory database.
      */
-    private fun getNewFoodEntry(foodName: String, foodQuantity: String, foodExpDate: String, foodType: String): Food {
+    private fun getNewFoodEntry(foodName: String, foodQuantity: String, foodExpDate: String, foodType: String, foodNotes: String): Food {
         return Food(
             name = foodName,
             quantity = foodQuantity,
             expDate = foodExpDate,
-            type = foodType
+            type = foodType,
+            notes = foodNotes,
+            expired = false
         )
     }
 }

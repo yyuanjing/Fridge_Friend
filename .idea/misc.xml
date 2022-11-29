@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/kelly/AndroidStudioProjects/Fridge_Friend/app/src/main/res/layout/activity_lists.xml" value="0.25052083333333336" />
+        <entry key="..\:/Users/kelly/AndroidStudioProjects/Fridge_Friend/app/src/main/res/layout/activity_main.xml" value="0.25052083333333336" />
+        <entry key="..\:/Users/kelly/AndroidStudioProjects/Fridge_Friend/app/src/main/res/layout/card_view_layout.xml" value="0.25052083333333336" />
+        <entry key="..\:/Users/kelly/AndroidStudioProjects/Fridge_Friend/app/src/main/res/layout/fragment_fridge.xml" value="0.25052083333333336" />
         <entry key="app/src/main/res/drawable/add_icon.xml" value="0.2235" />
         <entry key="app/src/main/res/drawable/web_24.xml" value="0.2235" />
         <entry key="app/src/main/res/layout-v33/activity_add_item.xml" value="0.28125" />
@@ -24,7 +28,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
