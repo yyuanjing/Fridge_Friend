@@ -10,6 +10,13 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import androidx.activity.viewModels
+import android.app.Notification
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Context
+import android.graphics.BitmapFactory
+import android.graphics.Color
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.TransitionBuilder.validate
@@ -191,6 +198,52 @@ class AddItemActivity : AppCompatActivity() {
                 val toast = Toast.makeText(applicationContext, text, duration)
                 toast.show()
             }
+
+            val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            val intent = Intent(this, ListsActivity::class.java)
+
+            // FLAG_UPDATE_CURRENT specifies that if a previous
+            // PendingIntent already exists, then the current one
+            // will update it with the latest intent
+            // 0 is the request code, using it later with the
+            // same method again will get back the same pending
+            // intent for future reference
+            // intent passed here is to our afterNotification class
+            val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
+
+            // RemoteViews are used to use the content of
+            // some different layout apart from the current activity layout
+
+            // checking if android version is greater than oreo(API 26) or not
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                val notificationChannel = NotificationChannel("addChannel", "description", NotificationManager.IMPORTANCE_HIGH)
+                notificationChannel.enableLights(true)
+                notificationChannel.lightColor = Color.GREEN
+                notificationChannel.enableVibration(false)
+                notificationManager.createNotificationChannel(notificationChannel)
+
+                val lastItem = foodList.last().name
+
+                val builder = Notification.Builder(this, "addChannel")
+                    .setSmallIcon(R.drawable.fridge)
+                    .setLargeIcon(BitmapFactory.decodeResource(this.resources, R.drawable.fridge))
+                    .setContentIntent(pendingIntent)
+                    .setContentTitle("New Item Added!")
+                    .setContentText("$lastItem was just added to your FridgeFriend!")
+
+                notificationManager.notify(1234, builder.build())
+
+            } else {
+
+                val builder = Notification.Builder(this)
+                    .setSmallIcon(R.drawable.fridge)
+                    .setLargeIcon(BitmapFactory.decodeResource(this.resources, R.drawable.fridge))
+                    .setContentIntent(pendingIntent)
+                    .setContentTitle("New Item Added!")
+                notificationManager.notify(1234, builder.build())
+
+            }
+
         }
     }
 
