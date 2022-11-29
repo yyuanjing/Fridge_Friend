@@ -14,6 +14,7 @@ import org.w3c.dom.Text
 class ViewItemActivity : AppCompatActivity() {
 
     private val data = DataSource.foods
+    private val historyData = DataSource.expired
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_item)
@@ -34,7 +35,11 @@ class ViewItemActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.notes_input).text = currFood.notes
 
         findViewById<Button>(R.id.delete_button).setOnClickListener(){
-
+            val intent = Intent(this, ListsActivity::class.java)
+            val moveToHistory = data.removeAt(position)
+            historyData.add(moveToHistory)
+            startActivity(intent)
+            finish()
         }
 
         findViewById<Button>(R.id.recipe_button).setOnClickListener(){
