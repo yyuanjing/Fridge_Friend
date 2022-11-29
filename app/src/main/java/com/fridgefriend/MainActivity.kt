@@ -9,6 +9,8 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Intent
+import android.content.pm.ActivityInfo
+import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +21,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.animation.addPauseListener
+import androidx.viewpager2.widget.ViewPager2
 import com.fridgefriend.databinding.ActivityMainBinding
 import kotlinx.coroutines.*
 
@@ -34,6 +37,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+//        if(resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE){
+//            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
+//        }
 
         supportActionBar?.hide()
 
