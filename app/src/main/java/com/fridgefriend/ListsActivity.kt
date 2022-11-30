@@ -43,76 +43,12 @@ class ListsActivity : AppCompatActivity() {
         navController = navHostFragment.navController
 
         val appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.fridgeFragment, R.id.shoppingFragment, R.id.historyFragment)
+            setOf(R.id.fridgeFragment, R.id.historyFragment)
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_nav)
         bottomNav.setupWithNavController(navController)
 
-
-        // TODO: implement search functionality
-        //if (Intent.ACTION_SEARCH == intent.action) {
-        //    val query = intent.getStringExtra(SearchManager.QUERY)
-        //    //use the query to search your data somehow
-        //}
-
     }
-
-     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.options_menu, menu)
-
-//     Associate searchable configuration with the SearchView
-//        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-//        if (menu != null) {
-//            val searchView = menu.findItem(R.id.search).actionView as SearchView
-//            searchView.queryHint = "Type here to search"
-//     searchView.apply {
-//        setSearchableInfo(searchManager.getSearchableInfo(componentName))
-//    }
-//            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-//
-//            })
-//        }
-
-        return true
-    }
-
-    // calling on create option menu
-    // layout to inflate our menu file.
-    /*override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // below line is to get our inflater
-        val inflater = menuInflater
-
-        // inside inflater we are inflating our menu file.
-        inflater.inflate(R.menu.options_menu, menu)
-
-
-        // below line is to get our menu item.
-        val searchItem = menu.findItem(R.id.search)
-
-        // getting search view of our item.
-        val searchView = searchItem.actionView as SearchView
-
-        // below line is to call set on query text listener method.
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String): Boolean {
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String): Boolean {
-                // inside on query text change method we are
-                // calling a method to filter our recycler view.
-                val fragment = supportFragmentManager.findFragmentById(R.id.fridgeFragment)
-                fragment.
-                FridgeFragment.filter(newText)
-                fragment.filter(newText)
-                filter(newText)
-                return false
-            }
-        })
-        return true
-    }*/
-
-
 }

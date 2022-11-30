@@ -6,10 +6,6 @@
         android:icon="@drawable/fridge"
         android:title="Fridge"/>
     <item
-        android:id="@+id/shoppingFragment"
-        android:icon="@drawable/fruits"
-        android:title="Shopping" />
-    <item
         android:id="@+id/historyFragment"
         android:icon="@drawable/history_icon"
         android:title="History" />
